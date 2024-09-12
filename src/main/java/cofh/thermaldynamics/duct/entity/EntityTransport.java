@@ -3,6 +3,7 @@ package cofh.thermaldynamics.duct.entity;
 import cofh.CoFHCore;
 import cofh.core.util.helpers.MathHelper;
 import cofh.core.util.helpers.SoundHelper;
+import cofh.thermaldynamics.init.TDSounds;
 import cofh.thermaldynamics.duct.ConnectionType;
 import cofh.thermaldynamics.duct.tiles.DuctToken;
 import cofh.thermaldynamics.duct.tiles.IDuctHolder;
@@ -22,6 +23,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
@@ -145,6 +147,7 @@ public class EntityTransport extends Entity {
 		if (rider instanceof EntityPlayer) {
 			originalEyeHeight = ((EntityPlayer) rider).eyeHeight;
 		}
+		passenger.world.playSound(null, rider.posX, rider.posY, rider.posZ, TDSounds.ductEnter, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 	}
 
 	@Override
@@ -336,6 +339,8 @@ public class EntityTransport extends Entity {
 
 		if (!world.isRemote) {
 			rider.dismountRidingEntity();
+
+			rider.world.playSound(null, rider.posX, rider.posY, rider.posZ, TDSounds.ductExit, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 
 			if (direction >= 0 && direction < 6) {
 				Vec3i vec = EnumFacing.VALUES[direction].getDirectionVec();

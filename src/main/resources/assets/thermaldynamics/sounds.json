@@ -1,9 +1,27 @@
 {
 	"duct_transport_woosh": {
-		"category": "neutral",
+		"category": "players",
 		"sounds": [
 			{
-				"name": "thermaldynamics:woosh",
+				"name": "thermaldynamics:woosh_new",
+				"stream": false
+			}
+		]
+	},
+	"duct_exit": {
+		"category": "players",
+		"sounds": [
+			{
+				"name": "thermaldynamics:exit",
+				"stream": false
+			}
+		]
+	},
+	"duct_enter": {
+		"category": "players",
+		"sounds": [
+			{
+				"name": "thermaldynamics:enter",
 				"stream": false
 			}
 		]

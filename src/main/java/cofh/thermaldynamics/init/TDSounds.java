@@ -26,6 +26,8 @@ public class TDSounds {
 	public void registerSounds(RegistryEvent.Register<SoundEvent> event) {
 
 		ductTransportWoosh = registerSoundEvent("duct_transport_woosh");
+		ductExit = registerSoundEvent("duct_exit");
+		ductEnter = registerSoundEvent("duct_enter");
 	}
 
 	private static SoundEvent registerSoundEvent(String id) {
@@ -37,5 +39,7 @@ public class TDSounds {
 	}
 
 	public static SoundEvent ductTransportWoosh;
+	public static SoundEvent ductExit;
+	public static SoundEvent ductEnter;
 
 }
